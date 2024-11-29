@@ -39,7 +39,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(55, 37);
+            label1.ForeColor = SystemColors.Control;
+            label1.Location = new Point(258, 50);
             label1.Name = "label1";
             label1.Size = new Size(418, 38);
             label1.TabIndex = 0;
@@ -48,7 +49,7 @@
             // lvPalettes
             // 
             lvPalettes.Columns.AddRange(new ColumnHeader[] { columnProduit, columnQte, columnZone });
-            lvPalettes.Location = new Point(55, 123);
+            lvPalettes.Location = new Point(258, 129);
             lvPalettes.Name = "lvPalettes";
             lvPalettes.Size = new Size(418, 242);
             lvPalettes.TabIndex = 1;
@@ -74,6 +75,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(0, 0, 64);
             ClientSize = new Size(908, 498);
             Controls.Add(lvPalettes);
             Controls.Add(label1);
