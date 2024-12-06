@@ -34,22 +34,24 @@
             label2 = new Label();
             tbMdp = new TextBox();
             btnConnexion = new Button();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // lbNom
             // 
             lbNom.AutoSize = true;
-            lbNom.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            lbNom.Font = new Font("Segoe UI", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lbNom.ForeColor = SystemColors.ButtonHighlight;
-            lbNom.Location = new Point(256, 9);
+            lbNom.Location = new Point(23, 9);
             lbNom.Name = "lbNom";
-            lbNom.Size = new Size(316, 65);
+            lbNom.Size = new Size(317, 65);
             lbNom.TabIndex = 0;
             lbNom.Text = "PREP'ORDER";
             // 
             // tbLogin
             // 
-            tbLogin.Location = new Point(472, 144);
+            tbLogin.Location = new Point(187, 37);
             tbLogin.Name = "tbLogin";
             tbLogin.Size = new Size(100, 23);
             tbLogin.TabIndex = 1;
@@ -57,57 +59,74 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(278, 117);
+            label1.Location = new Point(47, 30);
             label1.Name = "label1";
-            label1.Size = new Size(181, 65);
+            label1.Size = new Size(134, 30);
             label1.TabIndex = 2;
-            label1.Text = "Login :";
+            label1.Text = "Identifiant :";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(112, 222);
+            label2.Location = new Point(17, 86);
             label2.Name = "label2";
             label2.RightToLeft = RightToLeft.No;
-            label2.Size = new Size(354, 65);
+            label2.Size = new Size(164, 30);
             label2.TabIndex = 3;
             label2.Text = "Mot de passe :";
             // 
             // tbMdp
             // 
-            tbMdp.Location = new Point(472, 250);
+            tbMdp.Location = new Point(187, 95);
             tbMdp.Name = "tbMdp";
             tbMdp.Size = new Size(100, 23);
             tbMdp.TabIndex = 4;
             // 
             // btnConnexion
             // 
-            btnConnexion.Location = new Point(353, 347);
+            btnConnexion.BackColor = Color.Blue;
+            btnConnexion.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnConnexion.ForeColor = SystemColors.ButtonHighlight;
+            btnConnexion.Location = new Point(99, 170);
             btnConnexion.Name = "btnConnexion";
             btnConnexion.Size = new Size(138, 49);
             btnConnexion.TabIndex = 5;
             btnConnexion.Text = "Connexion";
-            btnConnexion.UseVisualStyleBackColor = true;
+            btnConnexion.UseVisualStyleBackColor = false;
             btnConnexion.Click += btnConnexion_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.BackColor = Color.Navy;
+            groupBox1.Controls.Add(btnConnexion);
+            groupBox1.Controls.Add(tbLogin);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(tbMdp);
+            groupBox1.ForeColor = SystemColors.ButtonHighlight;
+            groupBox1.Location = new Point(12, 77);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(328, 239);
+            groupBox1.TabIndex = 6;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Se connecter";
             // 
             // Connexion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MidnightBlue;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnConnexion);
-            Controls.Add(tbMdp);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(tbLogin);
+            ClientSize = new Size(355, 327);
             Controls.Add(lbNom);
+            Controls.Add(groupBox1);
             Name = "Connexion";
             Text = "Connexion";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,5 +139,6 @@
         private Label label2;
         private TextBox tbMdp;
         private Button btnConnexion;
+        private GroupBox groupBox1;
     }
 }
