@@ -61,7 +61,7 @@
             // 
             // qtLotProduit
             // 
-            qtLotProduit.Text = "quantité";
+            qtLotProduit.Text = "Quantité disponible";
             qtLotProduit.Width = 100;
             // 
             // tableau_de_bord_racks
@@ -73,6 +73,7 @@
             Controls.Add(listView1);
             Name = "tableau_de_bord_racks";
             Text = "tableau_de_bord_racks";
+            Load += tableau_de_bord_racks_Load;
             ResumeLayout(false);
         }
 
