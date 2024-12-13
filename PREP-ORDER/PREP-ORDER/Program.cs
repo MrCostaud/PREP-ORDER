@@ -4,13 +4,14 @@ namespace PREP_ORDER
     {
         public static string GetConnectionString()
         {
-            return "Server=LAPTOP-MTPE2M3G\\SQLEXPRESS; Database=preporder; Integrated Security=True;";
+            return "Server=LAPTOP-MTPE2M3G\\SQLEXPRESS; Database=preporder; Integrated Security=True;"; 
         }
+
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Connexion());
+            Application.Run(new Gestion_utilisateur());
         }
     }
 }

@@ -32,30 +32,36 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
             SuspendLayout();
             // 
             // lvUser
             // 
-            lvUser.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            lvUser.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
             lvUser.Location = new Point(12, 12);
             lvUser.Name = "lvUser";
-            lvUser.Size = new Size(322, 426);
+            lvUser.Size = new Size(375, 394);
             lvUser.TabIndex = 0;
             lvUser.UseCompatibleStateImageBehavior = false;
             lvUser.View = View.Details;
             // 
             // columnHeader1
             // 
-            columnHeader1.Text = "Id";
+            columnHeader1.Text = "Numéro";
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "Login";
-            columnHeader2.Width = 200;
+            columnHeader2.Text = "Identifiant";
+            columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
-            columnHeader3.Text = "Zone";
+            columnHeader3.Text = "Rôle";
+            columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Zone";
             // 
             // Gestion_utilisateur
             // 
@@ -70,10 +76,10 @@
         }
 
         #endregion
-
-        private ListView lvUser;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        public ListView lvUser;
     }
 }
