@@ -69,6 +69,25 @@ namespace PREP_ORDER
                     }
                 }
             }
+
+            public static void AddUser(string login, string mdp, string role, string zone)
+            {
+                using (SqlConnection connection = new SqlConnection(Program.GetConnectionString()))
+                {
+                    using (SqlCommand command = new SqlCommand("prc_add_user", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@login", login);
+                        command.Parameters.AddWithValue("@mdp", mdp);
+                        command.Parameters.AddWithValue("@role", role);
+                        command.Parameters.AddWithValue("@zone", zone);
+
+                        connection.Open();
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         private void Gestion_utilisateur_Load(object sender, EventArgs e)
@@ -94,6 +113,14 @@ namespace PREP_ORDER
             cbSecteur.Items.Add("Sec");
             cbSecteur.Items.Add("Liquide");
             cbSecteur.Items.Add("DPH");
+
+            cbSecteurAdd.Items.Add("Sec");
+            cbSecteurAdd.Items.Add("Liquide");
+            cbSecteurAdd.Items.Add("DPH");
+
+            cbRoleAdd.Items.Add("PREPARATEUR");
+            cbRoleAdd.Items.Add("CARISTE");
+            cbRoleAdd.Items.Add("RESPONSABLE");
 
             tbLogin.Enabled = false;
             cbSecteur.Enabled = false;
@@ -143,7 +170,7 @@ namespace PREP_ORDER
                 return;
             }
 
-            if (role == "RESPONSABLE" && secteur != "Aucune")
+            if (role == "RESPONSABLE" && secteur != "Aucun")
             {
                 MessageBox.Show("Un responsable ne peut pas avoir de secteur assigné.");
                 return;
@@ -164,18 +191,78 @@ namespace PREP_ORDER
 
             lvUser.Items.Clear();
 
-            // Récupérer les données
+            // On rafraîchit la comboBox
             var users = User.GetAllUsers();
 
-            // Parcourir les résultats et ajouter chaque utilisateur
+            
             foreach (var user in users)
             {
-                ListViewItem item = new ListViewItem(user.userID.ToString()); // ID
-                item.SubItems.Add(user.login);                               // Login
-                item.SubItems.Add(user.role);                                // Role
-                item.SubItems.Add(user.zone);                                // Zone
+                ListViewItem item = new ListViewItem(user.userID.ToString()); 
+                item.SubItems.Add(user.login);                               
+                item.SubItems.Add(user.role);                                
+                item.SubItems.Add(user.zone);                                
 
-                lvUser.Items.Add(item); // Ajouter à la ListView
+                lvUser.Items.Add(item); 
+            }
+        }
+
+        private void cbRoleAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Si le rôle est responsable : pas de secteur
+            if (cbRoleAdd.Text == "RESPONSABLE")
+            {
+                cbSecteurAdd.Enabled = false;
+                cbSecteurAdd.SelectedIndex = 0;
+                cbSecteurAdd.Text = "Aucun";
+            }
+            else
+            {
+                cbSecteurAdd.Enabled = true;
+                cbSecteurAdd.Text = "Sec";
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //on vérifie la présence d'un identifiant
+            if (string.IsNullOrWhiteSpace(tbLoginAdd.Text))
+            {
+                MessageBox.Show("Le champ 'identifiant' ne peut pas être vide.");
+                return;
+            }
+
+            //et d'un mot de passe
+            if (string.IsNullOrWhiteSpace(tbLoginAdd.Text))
+            {
+                MessageBox.Show("Le champ 'mot de passe' ne peut pas être vide.");
+                return;
+            }
+
+            try
+            {
+                // Ajout de l'utilisateur en base de données
+                User.AddUser(tbLoginAdd.Text, tbMdpAdd.Text, cbRoleAdd.Text, cbSecteurAdd.Text);
+                MessageBox.Show("Utilisateur ajouté avec succès !");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'ajout : {ex.Message}");
+            }
+
+            lvUser.Items.Clear();
+
+            // On rafraîchit la comboBox
+            var users = User.GetAllUsers();
+
+
+            foreach (var user in users)
+            {
+                ListViewItem item = new ListViewItem(user.userID.ToString()); 
+                item.SubItems.Add(user.login);                               
+                item.SubItems.Add(user.role);                                
+                item.SubItems.Add(user.zone);                                
+
+                lvUser.Items.Add(item); 
             }
         }
     }

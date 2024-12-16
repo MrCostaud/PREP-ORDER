@@ -4,7 +4,7 @@ namespace PREP_ORDER
     {
         public static string GetConnectionString()
         {
-            return "Server=LAPTOP-MTPE2M3G\\SQLEXPRESS; Database=preporder; Integrated Security=True;"; 
+            return "Server=MSI\\SQLEXPRESS; Database=preporder; Integrated Security=True;"; 
         }
 
         [STAThread]
