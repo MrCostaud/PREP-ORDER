@@ -159,43 +159,6 @@ namespace PREP_ORDER
 
 
 
-        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "statut" && dataGridView1.Columns[e.ColumnIndex].Name == "Probleme")
-            {
-
-                int numCommande = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["numCommande"].Value);
-                bool statut = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["statut"].Value);
-                bool Probleme = Convert.ToBoolean(dataGridView1.Rows[e.RowIndex].Cells["Probleme"].Value);
-
-
-                string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
-                string query = "UPDATE COMMANDE SET statut = @statut, Probleme = @Probleme WHERE numCommande = @numCommande";
-
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@statut", statut);
-                        command.Parameters.AddWithValue("@numCommande", numCommande);
-                        command.Parameters.AddWithValue("@Probleme", Probleme);
-
-                        connection.Open();
-                        command.ExecuteNonQuery();
-                        connection.Close();
-                    }
-
-
-                    ChargerDonneesZone();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erreur : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
 
 
 
@@ -317,6 +280,14 @@ namespace PREP_ORDER
             }
         }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
