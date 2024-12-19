@@ -11,7 +11,7 @@ namespace PREP_ORDER
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Gestion_commandes());
+            Application.Run(new Connexion());
         }
     }
 }

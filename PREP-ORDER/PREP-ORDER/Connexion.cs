@@ -67,6 +67,8 @@ namespace PREP_ORDER
                 {
                     case "RESPONSABLE":
                         MessageBox.Show($"Bienvenue, Responsable {resultat.login} !");
+                        Form Gestion_commandes = new Gestion_commandes();
+                        Gestion_commandes.Show();
                         break;
 
                     case "PREPARATEUR":
@@ -86,6 +88,11 @@ namespace PREP_ORDER
             {
                 MessageBox.Show("Échec de la connexion. Veuillez vérifier vos identifiants.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Connexion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
