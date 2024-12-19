@@ -18,7 +18,7 @@ namespace PREP_ORDER
         private void ChargerDonneesZone()
         {
             string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
-            string query = " SELECT top 10 c.numCommande, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Probleme \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette \r\nwhere statut = 'En cours';";
+            string query = " SELECT top 10 c.numCommande, numSousComm, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Problem \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette \r\ninner join COMPOSER CO on p.numProduit = CO.numProduit \r\nwhere statut = 'En cours';";
 
             try
             {
@@ -136,7 +136,7 @@ namespace PREP_ORDER
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
-            string query = $"SELECT top 10 c.numCommande, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Probleme \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette WHERE libelleZone = '{comboBox1.Text}' and statut = 'En cours';";
+            string query = $"SELECT top 10 c.numCommande, numSousComm,p.numProduit, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Problem \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette \r\ninner join COMPOSER CO on p.numProduit = CO.numProduit WHERE libelleZone = '{comboBox1.Text}' and statut = 'En cours';";
 
             try
             {
@@ -167,47 +167,38 @@ namespace PREP_ORDER
 
         private void Bouton_Click(object sender, EventArgs e)
         {
-            // Identifier le bouton cliqué
             System.Windows.Forms.Button boutonClique = sender as System.Windows.Forms.Button;
 
-            // Trouver l'index de la ligne correspondante
             int rowIndex = int.Parse(boutonClique.Name.Replace("button", "")) - 1;
 
-            // Vérifier si l'index est valide
             if (rowIndex < dataGridView1.Rows.Count)
             {
-                // Récupérer le `numCommande` de la ligne correspondante
                 int numCommande = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["numCommande"].Value);
+               
+                MettreAJourStatut(numCommande, "Validée");
 
-                // Mettre à jour le statut dans la base de données
-                MettreAJourStatut(numCommande, "Terminé");
-
-                // Rafraîchir l'affichage
                 ChargerDonneesZone();
             }
-
+            else
+            {
+                MessageBox.Show("Index de ligne non valide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
 
 
 
         private void Bouton_Click2(object sender, EventArgs e)
         {
-            // Identifier le bouton cliqué
             System.Windows.Forms.Button boutonClique1 = sender as System.Windows.Forms.Button;
 
-            // Trouver l'index de la ligne correspondante (ajuster pour boutons après 10)
             int rowIndex = int.Parse(boutonClique1.Name.Replace("button", "")) - 11;
-
-            // Vérifier si l'index est valide
             if (rowIndex >= 0 && rowIndex < dataGridView1.Rows.Count)
             {
-                // Récupérer le `numCommande` de la ligne correspondante
-                int numCommande = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["numCommande"].Value);
+                int numCommande = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["numSousComm"].Value);
 
-                // Mettre à jour le statut ou le problème dans la base de données
                 MettreAJourStatut1(numCommande, "Erreur");
 
-                // Rafraîchir l'affichage
                 ChargerDonneesZone();
             }
             else
@@ -224,7 +215,7 @@ namespace PREP_ORDER
         private void MettreAJourStatut(int numCommande, string nouveauStatut)
         {
             string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
-            string query = "UPDATE COMMANDE SET statut = @statut WHERE numCommande = @numCommande";
+            string query = @"UPDATE COMMANDE SET statut = @statut WHERE numCommande = @numCommande ";
 
             try
             {
@@ -234,12 +225,14 @@ namespace PREP_ORDER
                     command.Parameters.AddWithValue("@statut", nouveauStatut);
                     command.Parameters.AddWithValue("@numCommande", numCommande);
 
+
                     connection.Open();
                     command.ExecuteNonQuery();
                     connection.Close();
                 }
 
-                MessageBox.Show($"Le statut de la commande {numCommande} a été mis à jour à '{nouveauStatut}'.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Le statut de la commande {numCommande} a été mis à jour à '{nouveauStatut}'.",
+                    "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -254,18 +247,19 @@ namespace PREP_ORDER
 
 
 
+
         private void MettreAJourStatut1(int numCommande, string nouveauProbleme)
         {
             string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
-            string query = "UPDATE COMMANDE SET Probleme = @Probleme WHERE numCommande = @numCommande";
+            string query = "UPDATE COMPOSER SET Problem = @Problem WHERE numSousComm = @numSousComm";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Probleme", nouveauProbleme);
-                    command.Parameters.AddWithValue("@numCommande", numCommande);
+                    command.Parameters.AddWithValue("@Problem", nouveauProbleme);
+                    command.Parameters.AddWithValue("@numSouSComm", numCommande);
 
                     connection.Open();
                     command.ExecuteNonQuery();
