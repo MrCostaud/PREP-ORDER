@@ -83,6 +83,8 @@ namespace PREP_ORDER
 
                     default:
                         MessageBox.Show("Rôle inconnu, contactez l'administrateur.");
+                        Form Form2 = new Form2();
+                        Form2.Show();
                         break;
                 }
             }
