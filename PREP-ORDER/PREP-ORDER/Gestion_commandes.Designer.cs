@@ -53,6 +53,9 @@
             cbSec = new ComboBox();
             cbLiquide = new ComboBox();
             cbDPH = new ComboBox();
+            label4 = new Label();
+            cbMag = new ComboBox();
+            btnAdd = new Button();
             SuspendLayout();
             // 
             // btnLoad
@@ -68,9 +71,9 @@
             // lvCommande
             // 
             lvCommande.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-            lvCommande.Location = new Point(12, 12);
+            lvCommande.Location = new Point(12, 53);
             lvCommande.Name = "lvCommande";
-            lvCommande.Size = new Size(506, 648);
+            lvCommande.Size = new Size(506, 607);
             lvCommande.TabIndex = 1;
             lvCommande.UseCompatibleStateImageBehavior = false;
             lvCommande.View = View.Details;
@@ -172,7 +175,7 @@
             // 
             // btnDivide
             // 
-            btnDivide.Location = new Point(198, 666);
+            btnDivide.Location = new Point(371, 666);
             btnDivide.Name = "btnDivide";
             btnDivide.Size = new Size(147, 63);
             btnDivide.TabIndex = 5;
@@ -214,6 +217,7 @@
             cbSec.Name = "cbSec";
             cbSec.Size = new Size(151, 28);
             cbSec.TabIndex = 9;
+            cbSec.SelectedIndexChanged += cbSec_SelectedIndexChanged;
             // 
             // cbLiquide
             // 
@@ -222,6 +226,7 @@
             cbLiquide.Name = "cbLiquide";
             cbLiquide.Size = new Size(151, 28);
             cbLiquide.TabIndex = 10;
+            cbLiquide.SelectedIndexChanged += cbLiquide_SelectedIndexChanged;
             // 
             // cbDPH
             // 
@@ -230,12 +235,44 @@
             cbDPH.Name = "cbDPH";
             cbDPH.Size = new Size(151, 28);
             cbDPH.TabIndex = 11;
+            cbDPH.SelectedIndexChanged += cbDPH_SelectedIndexChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(13, 23);
+            label4.Name = "label4";
+            label4.Size = new Size(72, 20);
+            label4.TabIndex = 12;
+            label4.Text = "Magasin :";
+            // 
+            // cbMag
+            // 
+            cbMag.FormattingEnabled = true;
+            cbMag.Location = new Point(91, 19);
+            cbMag.Name = "cbMag";
+            cbMag.Size = new Size(151, 28);
+            cbMag.TabIndex = 13;
+            cbMag.SelectedIndexChanged += cbMag_SelectedIndexChanged;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(1121, 630);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(294, 99);
+            btnAdd.TabIndex = 14;
+            btnAdd.Text = "Ajouter la commande";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // Gestion_commandes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1427, 741);
+            Controls.Add(btnAdd);
+            Controls.Add(cbMag);
+            Controls.Add(label4);
             Controls.Add(cbDPH);
             Controls.Add(cbLiquide);
             Controls.Add(cbSec);
@@ -282,5 +319,8 @@
         private ComboBox cbSec;
         private ComboBox cbLiquide;
         private ComboBox cbDPH;
+        private Label label4;
+        private ComboBox cbMag;
+        private Button btnAdd;
     }
 }
