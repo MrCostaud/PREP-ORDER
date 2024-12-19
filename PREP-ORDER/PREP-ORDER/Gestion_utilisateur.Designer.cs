@@ -85,6 +85,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.Transparent;
             groupBox1.Controls.Add(btnUpdate);
             groupBox1.Controls.Add(cbSecteur);
             groupBox1.Controls.Add(label3);
@@ -101,13 +102,15 @@
             // 
             // btnUpdate
             // 
+            btnUpdate.BackColor = Color.Red;
+            btnUpdate.ForeColor = SystemColors.ButtonHighlight;
             btnUpdate.Location = new Point(111, 149);
             btnUpdate.Margin = new Padding(3, 4, 3, 4);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(170, 55);
             btnUpdate.TabIndex = 2;
             btnUpdate.Text = "Sauvegarder les modifications";
-            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
             // 
             // cbSecteur
@@ -122,18 +125,22 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(27, 97);
             label3.Name = "label3";
-            label3.Size = new Size(65, 20);
+            label3.Size = new Size(69, 20);
             label3.TabIndex = 6;
             label3.Text = "Secteur :";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 49);
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(8, 48);
             label1.Name = "label1";
-            label1.Size = new Size(84, 20);
+            label1.Size = new Size(91, 20);
             label1.TabIndex = 3;
             label1.Text = "Identifiant :";
             // 
@@ -148,6 +155,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.BackColor = Color.Transparent;
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(tbMdpAdd);
             groupBox2.Controls.Add(cbRoleAdd);
@@ -157,6 +165,7 @@
             groupBox2.Controls.Add(label2);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(tbLoginAdd);
+            groupBox2.ForeColor = SystemColors.ButtonHighlight;
             groupBox2.Location = new Point(449, 249);
             groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
@@ -169,15 +178,18 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.InactiveCaptionText;
             label6.Location = new Point(4, 103);
             label6.Name = "label6";
-            label6.Size = new Size(105, 20);
+            label6.Size = new Size(110, 20);
             label6.TabIndex = 11;
             label6.Text = "Mot de passe :";
             // 
             // tbMdpAdd
             // 
-            tbMdpAdd.Location = new Point(111, 100);
+            tbMdpAdd.Location = new Point(124, 100);
             tbMdpAdd.Margin = new Padding(3, 4, 3, 4);
             tbMdpAdd.MaxLength = 50;
             tbMdpAdd.Name = "tbMdpAdd";
@@ -188,7 +200,7 @@
             // cbRoleAdd
             // 
             cbRoleAdd.FormattingEnabled = true;
-            cbRoleAdd.Location = new Point(111, 149);
+            cbRoleAdd.Location = new Point(124, 150);
             cbRoleAdd.Margin = new Padding(3, 4, 3, 4);
             cbRoleAdd.Name = "cbRoleAdd";
             cbRoleAdd.Size = new Size(138, 28);
@@ -198,27 +210,32 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(63, 153);
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.InactiveCaptionText;
+            label5.Location = new Point(70, 153);
             label5.Name = "label5";
-            label5.Size = new Size(46, 20);
+            label5.Size = new Size(48, 20);
             label5.TabIndex = 8;
             label5.Text = "Rôle :";
             // 
             // btnAdd
             // 
+            btnAdd.BackColor = Color.Red;
+            btnAdd.ForeColor = SystemColors.ButtonHighlight;
             btnAdd.Location = new Point(111, 272);
             btnAdd.Margin = new Padding(3, 4, 3, 4);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(170, 55);
             btnAdd.TabIndex = 2;
             btnAdd.Text = "Ajouter l'utilisateur";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // cbSecteurAdd
             // 
             cbSecteurAdd.FormattingEnabled = true;
-            cbSecteurAdd.Location = new Point(111, 204);
+            cbSecteurAdd.Location = new Point(124, 205);
             cbSecteurAdd.Margin = new Padding(3, 4, 3, 4);
             cbSecteurAdd.Name = "cbSecteurAdd";
             cbSecteurAdd.Size = new Size(138, 28);
@@ -227,24 +244,30 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(45, 208);
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = SystemColors.InactiveCaptionText;
+            label2.Location = new Point(49, 208);
             label2.Name = "label2";
-            label2.Size = new Size(65, 20);
+            label2.Size = new Size(69, 20);
             label2.TabIndex = 6;
             label2.Text = "Secteur :";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.InactiveCaptionText;
             label4.Location = new Point(27, 49);
             label4.Name = "label4";
-            label4.Size = new Size(84, 20);
+            label4.Size = new Size(91, 20);
             label4.TabIndex = 3;
             label4.Text = "Identifiant :";
             // 
             // tbLoginAdd
             // 
-            tbLoginAdd.Location = new Point(111, 45);
+            tbLoginAdd.Location = new Point(124, 46);
             tbLoginAdd.Margin = new Padding(3, 4, 3, 4);
             tbLoginAdd.MaxLength = 50;
             tbLoginAdd.Name = "tbLoginAdd";
@@ -255,6 +278,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.news_16_11_20;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
