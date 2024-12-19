@@ -28,6 +28,8 @@ namespace PREP_ORDER
             {
                 db_connect.Open();
                 comboBox1.Items.Clear();
+                comboBox1.Items.Add("");
+                comboBox1.SelectedIndex = 0;
                 using (SqlCommand cmd = new SqlCommand(query, db_connect))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -94,6 +96,9 @@ namespace PREP_ORDER
             {
                 db_connect.Close();
                 reloadLV();
+                confirmation_stockage confirm = new confirmation_stockage();
+                confirm.Show();
+                button1.Enabled = false;
             }
         }
 
