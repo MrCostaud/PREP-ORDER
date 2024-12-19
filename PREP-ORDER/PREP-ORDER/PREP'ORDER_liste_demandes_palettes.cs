@@ -23,7 +23,7 @@ namespace PREP_ORDER
         private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)
         {
             lvPalettes.Items.Clear();
-            string query = "select libelleProduit, qtLotProduit, libelleZone from PRODUIT PR\r\ninner join PALETTE PA on PA.numProduit = PR.numProduit\r\ninner join ZONE Z on Z.codeZone = PR.codeZone\r\ninner join CARISTE C on C.codeZone = Z.codeZone\r\nwhere substring(emplacementPalette, 6,2) = '00'\r\n";
+            string query = "select libelleProduit, qtLotProduit, libelleZone from PRODUIT PR\r\ninner join PALETTE PA on PA.numProduit = PR.numProduit\r\ninner join ZONE Z on Z.codeZone = PR.codeZone\r\ninner join CARISTE C on C.codeZone = Z.codeZone\r\nwhere substring(emplacementPalette, 6,2) = '00'\r\nand estVide = 1\r\n";
 
             try
             {
