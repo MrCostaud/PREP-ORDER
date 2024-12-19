@@ -31,7 +31,7 @@ namespace PREP_ORDER
                 using (SqlCommand cmd = new SqlCommand(query, db_connect))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
-                    { 
+                    {
                         while (reader.Read())
                         {
                             string[] row = new string[reader.FieldCount];
@@ -57,6 +57,12 @@ namespace PREP_ORDER
             }
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form listePalettes = new PREP_ORDER_liste_demandes_palettes();
+            listePalettes.Show();
         }
     }
 }
