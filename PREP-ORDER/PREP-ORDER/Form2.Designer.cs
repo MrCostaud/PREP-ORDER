@@ -92,7 +92,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources._54fe1c6deb3c5_intermarche2180x1501;
             pictureBox1.Location = new Point(21, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(183, 139);

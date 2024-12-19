@@ -43,7 +43,7 @@
             lbNom.AutoSize = true;
             lbNom.Font = new Font("Segoe UI", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lbNom.ForeColor = SystemColors.ButtonHighlight;
-            lbNom.Location = new Point(26, 12);
+            lbNom.Location = new Point(12, 9);
             lbNom.Name = "lbNom";
             lbNom.Size = new Size(398, 81);
             lbNom.TabIndex = 0;
