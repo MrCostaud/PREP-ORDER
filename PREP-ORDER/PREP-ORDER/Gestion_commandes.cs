@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -79,6 +80,21 @@ namespace PREP_ORDER
             cbLiquide.Enabled = false;
             cbDPH.Enabled = false;
 
+            var commandes = Commande.GetCommandes();
+            foreach(var comm in commandes)
+            {
+                ListViewItem item = new ListViewItem(comm.idComm.ToString());
+                item.SubItems.Add(comm.nomMagasin);
+                if(comm.etat == false)
+                {
+                    item.SubItems.Add("En cours");
+                }
+                else
+                {
+                    item.SubItems.Add("Terminée");
+                }
+                lvListComm.Items.Add(item);
+            }
 
             var magasins = Commande.GetMagasins();
             string nomMagasin = "";
@@ -248,7 +264,7 @@ namespace PREP_ORDER
             int nbSousCommandes = Commande.GetNbSousCommandes() + 1;
             ExecuteWithErrorHandling(() => Commande.AddSousCommande(nbSousCommandes, nbCommandes, nomMag, cbSec.Text),
                 "Erreur lors de l'ajout de la sous-commande Sec", errors);
-            if(lvSec.Items.Count > 0)
+            if (lvSec.Items.Count > 0)
             {
                 foreach (ListViewItem item in lvSec.Items)
                 {
@@ -260,14 +276,14 @@ namespace PREP_ORDER
                 }
             }
 
-            
+
 
             // Sous-commande Liquide
             nbSousCommandes += 1;
             ExecuteWithErrorHandling(() => Commande.AddSousCommande(nbSousCommandes, nbCommandes, nomMag, cbLiquide.Text),
                 "Erreur lors de l'ajout de la sous-commande Liquide", errors);
 
-            if(lvLiquide.Items.Count > 0)
+            if (lvLiquide.Items.Count > 0)
             {
                 foreach (ListViewItem item in lvLiquide.Items)
                 {
@@ -284,7 +300,7 @@ namespace PREP_ORDER
             ExecuteWithErrorHandling(() => Commande.AddSousCommande(nbSousCommandes, nbCommandes, nomMag, cbDPH.Text),
                 "Erreur lors de l'ajout de la sous-commande DPH", errors);
 
-            if(lvDPH.Items.Count > 0)
+            if (lvDPH.Items.Count > 0)
             {
                 foreach (ListViewItem item in lvDPH.Items)
                 {
@@ -305,7 +321,45 @@ namespace PREP_ORDER
             {
                 MessageBox.Show("Commande ajoutée avec succès !", "Succès", MessageBoxButtons.OK);
             }
+            lvCommande.Items.Clear();
+            lvSec.Items.Clear();
+            lvLiquide.Items.Clear();
+            lvDPH.Items.Clear();
+            cbMag.Text = "";
+            cbDPH.Text = "";
+            cbSec.Text = "";
+            cbLiquide.Text = "";
+            btnAdd.Enabled = false;
+            btnDivide.Enabled = false;
+
+            lvListComm.Items.Clear();
+            var commandes = Commande.GetCommandes();
+            foreach (var comm in commandes)
+            {
+                ListViewItem item = new ListViewItem(comm.idComm.ToString());
+                item.SubItems.Add(comm.nomMagasin);
+                if (comm.etat == false)
+                {
+                    item.SubItems.Add("En cours");
+                }
+                else
+                {
+                    item.SubItems.Add("Terminée");
+                }
+                lvListComm.Items.Add(item);
+            }
+
+
         }
 
+        private void lvSec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

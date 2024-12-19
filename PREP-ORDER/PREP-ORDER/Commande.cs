@@ -146,5 +146,37 @@ namespace PREP_ORDER
                 }
             }
         }
+
+        public static List<(int idComm, string nomMagasin, bool etat)> GetCommandes()
+        {
+            var commandes = new List<(int idComm, string nomMagasin, bool etat)>();
+
+            // Chaîne de connexion à votre base de données
+            string connectionString = Program.GetConnectionString();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("prc_get_info_commande", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int idComm = Convert.ToInt32(reader["numCommande"]);
+                            string nomMagasin = reader["nomMagasin"].ToString();
+                            bool etat = Convert.ToBoolean(reader["etat"]);
+
+                            commandes.Add((idComm, nomMagasin, etat));
+                        }
+                    }
+                }
+            }
+
+            return commandes;
+        }
     }
 }
