@@ -81,6 +81,7 @@
             Controls.Add(label1);
             Name = "PREP_ORDER_liste_demandes_palettes";
             Text = "PREP_ORDER_liste_demandes_palettes";
+            Load += PREP_ORDER_liste_demandes_palettes_Load;
             ResumeLayout(false);
             PerformLayout();
         }
