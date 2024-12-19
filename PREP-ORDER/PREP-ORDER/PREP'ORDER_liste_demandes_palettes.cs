@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,8 +28,6 @@ namespace PREP_ORDER
             {
                 db_connect.Open();
                 comboBox1.Items.Clear();
-                comboBox1.Items.Add("");
-                comboBox1.SelectedIndex = 0;
                 using (SqlCommand cmd = new SqlCommand(query, db_connect))
                 {
                     using (SqlDataReader reader = cmd.ExecuteReader())
@@ -63,6 +61,12 @@ namespace PREP_ORDER
             }
             lvPalettes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             lvPalettes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+        }
+
+        private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)
+        {
+            reloadListView();
+            button1.Enabled = false;
 
         }
 

@@ -1,4 +1,4 @@
-﻿namespace PREP_ORDER
+namespace PREP_ORDER
 {
     partial class PREP_ORDER_liste_demandes_palettes
     {
@@ -113,7 +113,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(0, 0, 64);
+            BackColor = Color.Navy;
             ClientSize = new Size(908, 498);
             Controls.Add(button1);
             Controls.Add(numericUpDown1);
