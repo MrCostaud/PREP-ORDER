@@ -68,7 +68,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Navy;
+            BackColor = Color.FromArgb(0, 0, 64);
             ClientSize = new Size(1043, 521);
             Controls.Add(listView1);
             Name = "tableau_de_bord_racks";
