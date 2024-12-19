@@ -81,11 +81,11 @@ namespace PREP_ORDER
             cbDPH.Enabled = false;
 
             var commandes = Commande.GetCommandes();
-            foreach(var comm in commandes)
+            foreach (var comm in commandes)
             {
                 ListViewItem item = new ListViewItem(comm.idComm.ToString());
                 item.SubItems.Add(comm.nomMagasin);
-                if(comm.etat == false)
+                if (comm.etat == false)
                 {
                     item.SubItems.Add("En cours");
                 }
@@ -360,6 +360,12 @@ namespace PREP_ORDER
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            Form Gestion_utilisateurs = new Gestion_utilisateur();
+            Gestion_utilisateurs.Show();
         }
     }
 }

@@ -61,6 +61,7 @@
             columnHeader12 = new ColumnHeader();
             columnHeader16 = new ColumnHeader();
             label5 = new Label();
+            btnUser = new Button();
             SuspendLayout();
             // 
             // btnLoad
@@ -69,7 +70,7 @@
             btnLoad.ForeColor = SystemColors.ButtonHighlight;
             btnLoad.Location = new Point(519, 671);
             btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(147, 63);
+            btnLoad.Size = new Size(229, 63);
             btnLoad.TabIndex = 0;
             btnLoad.Text = "Charger une commande";
             btnLoad.UseVisualStyleBackColor = false;
@@ -185,9 +186,9 @@
             // 
             btnDivide.BackColor = Color.Red;
             btnDivide.ForeColor = SystemColors.ButtonHighlight;
-            btnDivide.Location = new Point(878, 671);
+            btnDivide.Location = new Point(802, 671);
             btnDivide.Name = "btnDivide";
-            btnDivide.Size = new Size(147, 63);
+            btnDivide.Size = new Size(223, 63);
             btnDivide.TabIndex = 5;
             btnDivide.Text = "Séparer en sous-commandes";
             btnDivide.UseVisualStyleBackColor = false;
@@ -281,9 +282,9 @@
             // 
             btnAdd.BackColor = Color.Red;
             btnAdd.ForeColor = SystemColors.ButtonHighlight;
-            btnAdd.Location = new Point(1478, 671);
+            btnAdd.Location = new Point(1056, 671);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(151, 63);
+            btnAdd.Size = new Size(573, 63);
             btnAdd.TabIndex = 14;
             btnAdd.Text = "Ajouter la commande";
             btnAdd.UseVisualStyleBackColor = false;
@@ -294,7 +295,7 @@
             lvListComm.Columns.AddRange(new ColumnHeader[] { columnHeader8, columnHeader12, columnHeader16 });
             lvListComm.Location = new Point(29, 47);
             lvListComm.Name = "lvListComm";
-            lvListComm.Size = new Size(418, 668);
+            lvListComm.Size = new Size(418, 618);
             lvListComm.TabIndex = 15;
             lvListComm.UseCompatibleStateImageBehavior = false;
             lvListComm.View = View.Details;
@@ -326,6 +327,18 @@
             label5.TabIndex = 16;
             label5.Text = "Liste des commandes :";
             // 
+            // btnUser
+            // 
+            btnUser.BackColor = Color.DimGray;
+            btnUser.ForeColor = SystemColors.ButtonHighlight;
+            btnUser.Location = new Point(29, 671);
+            btnUser.Name = "btnUser";
+            btnUser.Size = new Size(418, 63);
+            btnUser.TabIndex = 17;
+            btnUser.Text = "Accéder à la gestion d'utilisateur";
+            btnUser.UseVisualStyleBackColor = false;
+            btnUser.Click += btnUser_Click;
+            // 
             // Gestion_commandes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -334,6 +347,7 @@
             BackgroundImage = Properties.Resources.rackinstallationjpg_6214ed9e3315e;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1662, 740);
+            Controls.Add(btnUser);
             Controls.Add(label5);
             Controls.Add(lvListComm);
             Controls.Add(btnAdd);
@@ -393,5 +407,6 @@
         private ColumnHeader columnHeader12;
         private ColumnHeader columnHeader16;
         private Label label5;
+        private Button btnUser;
     }
 }
