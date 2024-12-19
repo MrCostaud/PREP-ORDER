@@ -344,7 +344,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            BackgroundImage = Properties.Resources.rackinstallationjpg_6214ed9e3315e;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1662, 740);
             Controls.Add(btnUser);

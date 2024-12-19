@@ -69,5 +69,15 @@ namespace PREP_ORDER.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rackinstallationjpg_6214ed9e3315e {
+            get {
+                object obj = ResourceManager.GetObject("rackinstallationjpg_6214ed9e3315e", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
