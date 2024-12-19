@@ -33,6 +33,7 @@
             emplacementPalette = new ColumnHeader();
             libelleProduit = new ColumnHeader();
             qtLotProduit = new ColumnHeader();
+            button1 = new Button();
             SuspendLayout();
             // 
             // listView1
@@ -64,12 +65,23 @@
             qtLotProduit.Text = "Quantité disponible";
             qtLotProduit.Width = 100;
             // 
+            // button1
+            // 
+            button1.Location = new Point(728, 205);
+            button1.Name = "button1";
+            button1.Size = new Size(177, 60);
+            button1.TabIndex = 1;
+            button1.Text = "Afficher les demandes de palettes";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // tableau_de_bord_racks
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Navy;
+            BackColor = Color.FromArgb(0, 0, 64);
             ClientSize = new Size(1043, 521);
+            Controls.Add(button1);
             Controls.Add(listView1);
             Name = "tableau_de_bord_racks";
             Text = "tableau_de_bord_racks";
@@ -84,5 +96,6 @@
         private ColumnHeader emplacementPalette;
         private ColumnHeader libelleProduit;
         private ColumnHeader qtLotProduit;
+        private Button button1;
     }
 }
