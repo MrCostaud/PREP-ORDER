@@ -17,7 +17,7 @@ namespace PREP_ORDER
 
         private void ChargerDonneesZone()
         {
-            string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
+            string connectionString = "Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;";
             string query = " SELECT top 10 c.numCommande, numSousComm, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Problem \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette \r\ninner join COMPOSER CO on p.numProduit = CO.numProduit \r\nwhere statut = 'En cours';";
 
             try
@@ -135,7 +135,7 @@ namespace PREP_ORDER
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
+            string connectionString = "Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;";
             string query = $"SELECT top 10 c.numCommande, numSousComm,p.numProduit, c.dateCommande, m.numMagasin, m.nomMagasin, z.codeZone,  z.libelleZone, p.libelleProduit, qtLotProduit, c.statut, Problem \r\nFROM  COMMANDE c \r\nINNER JOIN MAGASIN m ON c.numMagasin = m.numMagasin \r\nINNER JOIN ZONE z ON z.codeZone = m.codeZone \r\nINNER JOIN PRODUIT p ON z.codeZone = p.codeZone \r\ninner join PALETTE on p.numProduit = numPalette \r\ninner join COMPOSER CO on p.numProduit = CO.numProduit WHERE libelleZone = '{comboBox1.Text}' and statut = 'En cours';";
 
             try
@@ -174,7 +174,7 @@ namespace PREP_ORDER
             if (rowIndex < dataGridView1.Rows.Count)
             {
                 int numCommande = Convert.ToInt32(dataGridView1.Rows[rowIndex].Cells["numCommande"].Value);
-               
+
                 MettreAJourStatut(numCommande, "Validée");
 
                 ChargerDonneesZone();
@@ -214,7 +214,7 @@ namespace PREP_ORDER
 
         private void MettreAJourStatut(int numCommande, string nouveauStatut)
         {
-            string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
+            string connectionString = "Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;";
             string query = @"UPDATE COMMANDE SET statut = @statut WHERE numCommande = @numCommande ";
 
             try
@@ -250,7 +250,7 @@ namespace PREP_ORDER
 
         private void MettreAJourStatut1(int numCommande, string nouveauProbleme)
         {
-            string connectionString = "Server=SIO2023-23\\SQLEXPRESS;Database=preporder1;Trusted_Connection=True;";
+            string connectionString = "Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;";
             string query = "UPDATE COMPOSER SET Problem = @Problem WHERE numSousComm = @numSousComm";
 
             try
@@ -280,6 +280,11 @@ namespace PREP_ORDER
         }
 
         private void button14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load_1(object sender, EventArgs e)
         {
 
         }

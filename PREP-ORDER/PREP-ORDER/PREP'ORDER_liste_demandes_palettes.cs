@@ -18,7 +18,7 @@ namespace PREP_ORDER
             InitializeComponent();
         }
 
-        private SqlConnection db_connect = new SqlConnection("Server=SIO2023-29\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;");
+        private SqlConnection db_connect = new SqlConnection("Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;");
         private void reloadLV()
         {
             lvPalettes.Items.Clear();
@@ -61,13 +61,6 @@ namespace PREP_ORDER
             }
             lvPalettes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             lvPalettes.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-        }
-
-        private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)
-        {
-            reloadListView();
-            button1.Enabled = false;
-
         }
 
         private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)

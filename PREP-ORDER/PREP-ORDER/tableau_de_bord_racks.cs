@@ -18,7 +18,7 @@ namespace PREP_ORDER
             InitializeComponent();
         }
 
-        private SqlConnection db_connect = new SqlConnection("Server=SIO2023-29\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;");
+        private SqlConnection db_connect = new SqlConnection("Server=MSI\\SQLEXPRESS;Database=preporder;Trusted_Connection=True;");
 
         private void tableau_de_bord_racks_Load(object sender, EventArgs e)
         {

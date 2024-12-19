@@ -73,10 +73,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Showcard Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(545, 16);
             label1.Name = "label1";
-            label1.Size = new Size(579, 26);
+            label1.Size = new Size(495, 25);
             label1.TabIndex = 1;
             label1.Text = "Commandes assignées à leur zone de préparation";
             // 
@@ -101,10 +101,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Rockwell", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(580, 77);
             label2.Name = "label2";
-            label2.Size = new Size(292, 22);
+            label2.Size = new Size(274, 25);
             label2.TabIndex = 4;
             label2.Text = "Trier par zone de préparation :";
             // 
@@ -363,6 +363,7 @@
             Controls.Add(dataGridView1);
             Name = "Form2";
             Text = "Form2";
+            Load += Form2_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

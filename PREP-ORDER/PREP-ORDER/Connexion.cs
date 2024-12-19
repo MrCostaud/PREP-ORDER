@@ -73,6 +73,8 @@ namespace PREP_ORDER
 
                     case "PREPARATEUR":
                         MessageBox.Show($"Bienvenue, Préparateur {resultat.login} !");
+                        Form Form2 = new Form2();
+                        Form2.Show();
                         break;
 
                     case "CARISTE":
@@ -83,8 +85,6 @@ namespace PREP_ORDER
 
                     default:
                         MessageBox.Show("Rôle inconnu, contactez l'administrateur.");
-                        Form Form2 = new Form2();
-                        Form2.Show();
                         break;
                 }
             }
