@@ -77,6 +77,8 @@ namespace PREP_ORDER
 
                     case "CARISTE":
                         MessageBox.Show($"Bienvenue, Cariste {resultat.login} !");
+                        Form tableau_de_bord_rack = new tableau_de_bord_racks();
+                        tableau_de_bord_rack.Show();
                         break;
 
                     default:
