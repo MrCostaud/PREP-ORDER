@@ -65,13 +65,6 @@ namespace PREP_ORDER
 
         private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)
         {
-            reloadListView();
-            button1.Enabled = false;
-
-        }
-
-        private void PREP_ORDER_liste_demandes_palettes_Load(object sender, EventArgs e)
-        {
             reloadLV();
             button1.Enabled = false;
         }
