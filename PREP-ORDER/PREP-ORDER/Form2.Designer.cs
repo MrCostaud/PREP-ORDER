@@ -62,12 +62,12 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(40, 120);
+            dataGridView1.Location = new Point(210, 120);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1472, 400);
+            dataGridView1.Size = new Size(1302, 400);
             dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -83,7 +83,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "ZONE A", "ZONE B", "ZONE C" });
+            comboBox1.Items.AddRange(new object[] { "Sec", "Liquide", "DPH" });
             comboBox1.Location = new Point(916, 76);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(151, 28);
@@ -207,7 +207,6 @@
             button9.TabIndex = 13;
             button9.Text = "VALIDER";
             button9.UseVisualStyleBackColor = false;
-            button9.Click += button9_Click;
             // 
             // button10
             // 
@@ -263,7 +262,6 @@
             button14.TabIndex = 18;
             button14.Text = "Zone vide";
             button14.UseVisualStyleBackColor = false;
-            button14.Click += button14_Click;
             // 
             // button15
             // 
